@@ -190,8 +190,13 @@
                 <div class="contact-content">
                     <h2 class="section-title">Ready to modernize your website?</h2>
                     <p class="section-subtitle">Tell us about your business and we'll send a free homepage mockup.</p>
-                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/hello@wolfestudios.co"
-                        method="POST">
+                    <form class="contact-form" id="contact-form"
+                        action="https://formsubmit.co/ajax/hello@wolfestudios.co" method="POST">
+                        <!-- Formsubmit config -->
+                        <input type="hidden" name="_subject" value="New Mockup Request from Wolfe Studios">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
                             <input type="text" id="name" name="name" class="form-input" required>
@@ -209,8 +214,21 @@
                             <label for="message" class="form-label">What's not working with your current site?</label>
                             <textarea id="message" name="message" class="form-input form-textarea" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Get Your Free Mockup</button>
+                        <button type="submit" class="btn btn-primary btn-full" id="submit-btn">Get Your Free
+                            Mockup</button>
                     </form>
+
+                    <!-- Success message -->
+                    <div class="form-success" id="form-success" style="display: none;">
+                        <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3 class="success-title">Message sent!</h3>
+                        <p class="success-text">We'll review your site and get back to you within 24 hours with a free
+                            mockup.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -249,10 +267,40 @@
             });
         });
 
-        // Form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            // Let form submit naturally to formsubmit.co
-            // Show feedback after redirect
+        // Form submission handler - AJAX to stay on page
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successDiv = document.getElementById('form-success');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Submit via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Hide form, show success
+                        form.style.display = 'none';
+                        successDiv.style.display = 'block';
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    submitBtn.textContent = 'Get Your Free Mockup';
+                    submitBtn.disabled = false;
+                    alert('Something went wrong. Please email us directly at hello@wolfestudios.co');
+                });
         });
     </script>
 </body>
