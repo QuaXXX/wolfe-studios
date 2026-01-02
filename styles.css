@@ -127,6 +127,10 @@ select {
     background-color: var(--color-bg-alt);
 }
 
+.section-hidden {
+    display: none;
+}
+
 /* ========================================
    TYPOGRAPHY
    ======================================== */
