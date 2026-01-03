@@ -427,13 +427,19 @@ select {
     width: 100%;
     height: auto;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 10px 30px -5px rgb(0 0 0 / 0.25),
+        0 0 0 1px rgb(0 0 0 / 0.05);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .example-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    box-shadow:
+        0 8px 12px -2px rgb(0 0 0 / 0.15),
+        0 20px 40px -10px rgb(0 0 0 / 0.35),
+        0 0 0 1px rgb(0 0 0 / 0.08);
 }
 
 .example-placeholder {
