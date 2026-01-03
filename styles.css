@@ -411,6 +411,8 @@ select {
 .example-before,
 .example-after {
     position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
 }
 
 .example-label {
@@ -425,8 +427,11 @@ select {
 
 .example-image {
     width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
+    height: 280px;
+    object-fit: cover;
+    object-position: top center;
+    transform: scale(1.5);
+    transform-origin: top center;
     box-shadow:
         0 4px 6px -1px rgb(0 0 0 / 0.1),
         0 10px 30px -5px rgb(0 0 0 / 0.25),
@@ -434,8 +439,9 @@ select {
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.example-image:hover {
-    transform: scale(1.02);
+.example-before:hover .example-image,
+.example-after:hover .example-image {
+    transform: scale(1.55);
     box-shadow:
         0 8px 12px -2px rgb(0 0 0 / 0.15),
         0 20px 40px -10px rgb(0 0 0 / 0.35),
