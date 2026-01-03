@@ -451,10 +451,10 @@ select {
 
 .example-image {
     width: 100%;
-    height: auto;
+    height: 300px;
     display: block;
-    transform: scale(1.15);
-    transform-origin: top center;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .example-placeholder {
