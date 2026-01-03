@@ -425,14 +425,18 @@ select {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-lg);
-    box-shadow: 0 0 30px 5px rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 8px 24px -4px rgb(0 0 0 / 0.4),
+        0 16px 48px -8px rgb(0 0 0 / 0.3);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .example-before:hover,
 .example-after:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 12px 32px -4px rgb(0 0 0 / 0.45),
+        0 24px 56px -8px rgb(0 0 0 / 0.35);
 }
 
 .example-label {
