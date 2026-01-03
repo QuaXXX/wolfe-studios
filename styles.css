@@ -127,6 +127,18 @@ select {
     background-color: var(--color-bg-alt);
 }
 
+.section-examples {
+    background-color: var(--color-bg-dark);
+}
+
+.section-examples .section-title {
+    color: #ffffff;
+}
+
+.section-examples .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .section-hidden {
     display: none;
 }
@@ -411,6 +423,20 @@ select {
 .example-before,
 .example-after {
     position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow:
+        0 8px 24px -4px rgb(0 0 0 / 0.4),
+        0 16px 48px -8px rgb(0 0 0 / 0.3);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.example-before:hover,
+.example-after:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 32px -4px rgb(0 0 0 / 0.45),
+        0 24px 56px -8px rgb(0 0 0 / 0.35);
 }
 
 .example-label {
@@ -420,25 +446,15 @@ select {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: var(--space-xs);
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .example-image {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-lg);
-    border: 2px solid #1f2937;
-    box-shadow:
-        0 8px 24px -4px rgb(0 0 0 / 0.3),
-        0 16px 48px -8px rgb(0 0 0 / 0.25);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.example-image:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 12px 32px -4px rgb(0 0 0 / 0.35),
-        0 24px 56px -8px rgb(0 0 0 / 0.3);
+    display: block;
+    transform: scale(1.15);
+    transform-origin: top center;
 }
 
 .example-placeholder {
