@@ -411,8 +411,6 @@ select {
 .example-before,
 .example-after {
     position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
 }
 
 .example-label {
@@ -427,25 +425,20 @@ select {
 
 .example-image {
     width: 100%;
-    height: 280px;
-    object-fit: cover;
-    object-position: top center;
-    transform: scale(1.5);
-    transform-origin: top center;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 2px solid #1f2937;
     box-shadow:
-        0 4px 6px -1px rgb(0 0 0 / 0.1),
-        0 10px 30px -5px rgb(0 0 0 / 0.25),
-        0 0 0 1px rgb(0 0 0 / 0.05);
+        0 8px 24px -4px rgb(0 0 0 / 0.3),
+        0 16px 48px -8px rgb(0 0 0 / 0.25);
     transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.example-before:hover .example-image,
-.example-after:hover .example-image {
-    transform: scale(1.55);
+.example-image:hover {
+    transform: translateY(-4px);
     box-shadow:
-        0 8px 12px -2px rgb(0 0 0 / 0.15),
-        0 20px 40px -10px rgb(0 0 0 / 0.35),
-        0 0 0 1px rgb(0 0 0 / 0.08);
+        0 12px 32px -4px rgb(0 0 0 / 0.35),
+        0 24px 56px -8px rgb(0 0 0 / 0.3);
 }
 
 .example-placeholder {
