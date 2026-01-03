@@ -423,6 +423,19 @@ select {
     color: var(--color-text-muted);
 }
 
+.example-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.example-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
 .example-placeholder {
     display: flex;
     flex-direction: column;
